@@ -1,44 +1,85 @@
-/* ===== PORTFOLIO CSS DEVELOPMENT PROGRESSION =====
- * LAB01: Basic HTML structure foundation
- * LAB04: Links, images, and semantic elements
- * LAB05: CSS foundation with reset and typography
- * LAB06: Header design and professional styling
- * LAB07: Flexbox layouts for navigation and content sections
- * LAB08: CSS Grid for advanced portfolio layouts
- ================================================= */
-
-/* Basic color system following lab examples */
-
-/* ===== LAB05: CSS RESET FOUNDATION ===== */
+/* ===== CSS RESET & BASE STYLES ===== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-
-/* ===== LAB05-LAB06: TYPOGRAPHY FOUNDATION ===== */
 body {
-  /* 
-    Font stack explanation:
-    - system-ui: Uses the OS default UI font (Segoe UI on Windows, San Francisco on Mac)
-    - -apple-system: Fallback for older Safari browsers
-    - sans-serif: Universal fallback if system fonts fail
-  */
   font-family: system-ui, -apple-system, sans-serif;
-
-  /* Line height 1.6 = 160% of font size - improves readability */
   line-height: 1.6;
-
-  /* #333 is dark gray - softer than pure black for better reading experience */
   color: #333;
 }
 
+/* ===== TYPOGRAPHY ===== */
+h1 {
+  color: #2d3748;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+}
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 0.6rem;
+  line-height: 1.4;
+}
+p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+p + p {
+  margin-top: 1rem;
+}
+/* Responsive clamp overrides */
+h1 {
+  color: #4d1979;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+h2 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+}
+h3 {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+}
 
+/* ===== LAYOUT CONTAINERS ===== */
+main {
+  max-width: 65ch;
+  margin: 0 auto;
+  padding: 5%;
+}
+section {
+  margin-bottom: 2rem;
+  padding: 3rem 0;
+}
+section h2 {
+  text-align: center;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  margin-bottom: 2rem;
+  color: #2c3e50;
+}
+section h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #28a745;
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
 
-/* ===== LAB06: BASIC NAVIGATION STYLING ===== */
-/* Previous CSS for <nav> */
-
+/* ===== NAVIGATION ===== */
 nav {
   background-color: #fff;
   padding: 1rem 2rem;
@@ -50,20 +91,13 @@ nav a {
   margin-right: 2rem;
   font-weight: 500;
 }
-
 nav a:hover {
   color: #007bff;
 }
-
-/* /* Basic focus state for accessibility  */
 nav a:focus {
   outline: 2px solid #007bff;
   outline-offset: 2px;
-} 
-
-/* ===== LAB07: FLEXBOX NAVIGATION ENHANCEMENT ===== */
-/* ADDITION from LAB07 */
- 
+}
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -72,31 +106,25 @@ nav a:focus {
   background: white;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
 .logo {
   font-size: 1.25rem;
   font-weight: bold;
   text-decoration: none;
   color: #2c3e50;
 }
-
 .nav-links {
   display: flex;
   gap: 2rem;
 }
-
 .nav-links a {
   text-decoration: none;
   color: #2c3e50;
   font-weight: 500;
 }
-
 .nav-links a:hover {
   color: #28a745;
-} 
+}
 
-/* ===== MOBILE NAVIGATION: COLUMN LAYOUT ===== */
-/* On mobile screens (below 768px), stack navigation vertically */
 @media (max-width: 767px) {
   .nav-container {
     flex-direction: column;
@@ -104,101 +132,186 @@ nav a:focus {
     gap: 1rem;
     padding: 1rem;
   }
-  
   .nav-links {
     flex-direction: column;
     gap: 1rem;
     width: 100%;
   }
-  
   .nav-links a {
     display: block;
     padding: 0.5rem 0;
     border-bottom: 1px solid #e9ecef;
   }
-  
   .nav-links a:last-child {
     border-bottom: none;
   }
 }
 
-/* ===== LAB06: HEADER FLEXBOX LAYOUT ===== */
+/* ===== HEADER SECTION ===== */
 header {
-
   display: flex;
   align-items: center;
-  /* flex-direction: row; */
   padding: 2rem;
   gap: 2rem;
   height: 60vh;
   background-color: #f8f9fa;
-
 }
-
 .header_text {
-  /* REMOVED: debugging background-color: cadetblue for professional appearance */
   flex: 1;
   padding: 2rem;
 }
-
-
 .header_pic {
   flex: 1;
-  /* Takes up equal space */
   background-color: #e9ecef;
   min-height: 300px;
-  max-width: 400px; /* ADDED: Prevents container from getting too wide on large screens */
-  border-radius: 8px;
-  /* Subtle rounded corners */
+  max-width: 400px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #6c757d;
-  overflow: hidden; /* ADDED: Ensures image doesn't overflow rounded corners */
+  overflow: hidden;
 }
-
-/* UPDATED: Professional headshot styling with size constraints */
 .header_pic img {
   width: 100%;
   height: 100%;
-  max-width: 400px; /* ADDED: Prevents image from exceeding reasonable size */
-  max-height: 400px; /* ADDED: Maintains square-ish proportions */
-  object-fit: cover; /* Maintains aspect ratio while filling container */
-  border-radius: 8px; /* Matches container border radius */
+  max-width: 400px;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
-/* main { */
-  /* max-width: 65ch;  About 65 characters wide - good for reading on any screen */
-  /* margin: 0 auto;   Centers the content */
-  /* padding: 5%;      5% padding scales with screen size */
-/* } */
-
-/* section {
-  margin-bottom: 2rem;
-} */
-/* ===== LAB07: MAIN CONTAINER & SECTION SPACING ===== */
-/* ADDITION as Part of LAB07 */
-/* Main container for all sections */
-/* Apply to your main container that holds all sections */
-main {
+/* ===== SECTION-SPECIFIC STYLES ===== */
+.about-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 3rem 0;
+  align-items: center;
+}
+.about-image {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+}
+.about-image img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  border-radius: 8px;
+}
+.about-text {
+  flex: 2;
+  min-width: 250px;
+}
+.skill-card {
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.skill-card:hover {
+  transform: translateY(-2px);
+}
+.skill-card h3 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+.skill-card p {
+  color: #555;
+  font-size: 0.9rem;
+}
+.skills-container {
   display: grid;
-  gap: 4rem;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.projects-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.project-card {
+  padding: 2rem;
+  background: white;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+.project-card h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+.project-card p {
+  margin-bottom: 0.5rem;
 }
 
-/* Responsive container padding */
+/* ===== FOOTER ===== */
+footer {
+  background-color: #2c3e50;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+footer h4 {
+  color: #ecf0f1;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+footer p {
+  color: #bdc3c7;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+footer a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+}
+footer a:hover {
+  color: #2980b9;
+}
+
+/* ===== RESPONSIVE MEDIA QUERIES ===== */
 @media (min-width: 768px) {
   main {
     padding: 1.5rem;
   }
+  .nav-container {
+    flex-direction: column;
+  }
+  .about-section {
+    grid-template-columns: 250px 1fr;
+    gap: 3rem;
+    display: grid;
+  }
+  .projects-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .project-card.featured {
+    grid-column: span 2;
+  }
 }
- 
-
-/* Consistent section spacing */
-section {
-  padding: 3rem 0;
+@media (min-width: 1024px) {
+  .projects-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .project-card.featured {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
 }
 
 /* Section headings */
