@@ -1,98 +1,51 @@
-/* ===== PORTFOLIO CSS DEVELOPMENT PROGRESSION =====
- * LAB01: Basic HTML structure foundation
- * LAB04: Links, images, and semantic elements
- * LAB05: CSS foundation with reset and typography
- * LAB06: Header design and professional styling
- * LAB07: Flexbox layouts for navigation and content sections
- * LAB08: CSS Grid for advanced portfolio layouts
- ================================================= */
-
-/* ========================================================= */
-/* ========== RESET & BASE STYLES ========== */
-/* ========================================================= */
-
-/* Basic color system following lab examples */
-
-/* ===== LAB05: CSS RESET FOUNDATION ===== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-
-/* ===== LAB05-LAB06: TYPOGRAPHY FOUNDATION ===== */
 body {
-  /* 
-    Font stack explanation:
-    - system-ui: Uses the OS default UI font (Segoe UI on Windows, San Francisco on Mac)
-    - -apple-system: Fallback for older Safari browsers
-    - sans-serif: Universal fallback if system fonts fail
-  */
   font-family: system-ui, -apple-system, sans-serif;
-
-  /* Line height 1.6 = 160% of font size - improves readability */
   line-height: 1.6;
-
-  /* #333 is dark gray - softer than pure black for better reading experience */
   color: #333;
 }
 
 /* ========================================================= */
 /* ========== TYPOGRAPHY ========== */
 /* ========================================================= */
-
 h1 {
   color: #4d1979;
-  font-size: clamp(2rem, 5vw, 3rem); /* Responsive sizing with clamp */
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
-  /* Bold for impact */
   margin-bottom: 1rem;
   line-height: 1.2;
-  /* Tighter spacing for headings */
 }
 
 h2 {
-  font-size: clamp(1.5rem, 4vw, 2.5rem); /* Responsive sizing with clamp */
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 600;
   color: #4a5568;
   margin-bottom: 0.8rem;
-  line-height: 1.3; 
+  line-height: 1.3;
 }
 
-/* ADDED: h3 styling as referenced in lab prompt */
 h3 {
-  font-size: clamp(1.2rem, 3vw, 1.8rem); /* Responsive sizing with clamp */
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
   font-weight: 600;
   color: #4a5568;
   margin-bottom: 0.6rem;
   line-height: 1.4;
 }
 
-/* ADDED: Additional paragraph styling for better spacing */
 p {
   font-size: 1rem;
   margin-bottom: 1rem;
-  color: #555; /* Slightly lighter for body text */
+  color: #555;
 }
 
 /* ========================================================= */
 /* ========== LAYOUT CONTAINERS ========== */
 /* ========================================================= */
-
-/* main { */
-  /* max-width: 65ch;  About 65 characters wide - good for reading on any screen */
-  /* margin: 0 auto;   Centers the content */
-  /* padding: 5%;      5% padding scales with screen size */
-/* } */
-
-/* section {
-  margin-bottom: 2rem;
-} */
-/* ===== LAB07: MAIN CONTAINER & SECTION SPACING ===== */
-/* ADDITION as Part of LAB07 */
-/* Main container for all sections */
-/* Apply to your main container that holds all sections */
 main {
   display: grid;
   gap: 4rem;
@@ -101,32 +54,27 @@ main {
   padding: 1rem;
 }
 
-/* Responsive container padding */
 @media (min-width: 768px) {
   main {
     padding: 1.5rem;
   }
 }
- 
 
-/* Consistent section spacing */
 section {
   padding: 3rem 0;
 }
 
-/* Section headings */
 section h2 {
   text-align: center;
-  font-size: clamp(1.5rem, 4vw, 2.5rem); /* Use clamp for consistency */
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
   margin-bottom: 2rem;
   color: #2c3e50;
 }
 
-/* Add some visual interest to section headings */
 section h2::after {
   content: '';
   display: block;
-  width: 60px; /* Match Lab08 requirement for 60px colored bar */
+  width: 60px;
   height: 3px;
   background: #28a745;
   margin: 1rem auto 0;
@@ -136,10 +84,6 @@ section h2::after {
 /* ========================================================= */
 /* ========== NAVIGATION ========== */
 /* ========================================================= */
-
-/* ===== LAB06: BASIC NAVIGATION STYLING ===== */
-/* Previous CSS for <nav> */
-
 nav {
   background-color: #fff;
   padding: 1rem 2rem;
@@ -151,20 +95,14 @@ nav a {
   margin-right: 2rem;
   font-weight: 500;
 }
-
 nav a:hover {
   color: #007bff;
 }
-
-/* /* Basic focus state for accessibility  */
 nav a:focus {
   outline: 2px solid #007bff;
   outline-offset: 2px;
-} 
+}
 
-/* ===== LAB07: FLEXBOX NAVIGATION ENHANCEMENT ===== */
-/* ADDITION from LAB07 */
- 
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -194,10 +132,8 @@ nav a:focus {
 
 .nav-links a:hover {
   color: #28a745;
-} 
+}
 
-/* ===== MOBILE NAVIGATION: COLUMN LAYOUT ===== */
-/* On mobile screens (below 768px), stack navigation vertically */
 @media (max-width: 767px) {
   .nav-container {
     flex-direction: column;
@@ -205,19 +141,16 @@ nav a:focus {
     gap: 1rem;
     padding: 1rem;
   }
-  
   .nav-links {
     flex-direction: column;
     gap: 1rem;
     width: 100%;
   }
-  
   .nav-links a {
     display: block;
     padding: 0.5rem 0;
     border-bottom: 1px solid #e9ecef;
   }
-  
   .nav-links a:last-child {
     border-bottom: none;
   }
@@ -227,56 +160,44 @@ nav a:focus {
 /* ========== HEADER ========== */
 /* ========================================================= */
 header {
-
   display: flex;
   align-items: center;
-  /* flex-direction: row; */
   padding: 2rem;
   gap: 2rem;
   height: 60vh;
   background-color: #f8f9fa;
-
 }
 
 .header_text {
-  /* REMOVED: debugging background-color: cadetblue for professional appearance */
   flex: 1;
   padding: 2rem;
 }
 
-
 .header_pic {
   flex: 1;
-  /* Takes up equal space */
   background-color: #e9ecef;
   min-height: 300px;
-  max-width: 400px; /* ADDED: Prevents container from getting too wide on large screens */
+  max-width: 400px;
   border-radius: 8px;
-  /* Subtle rounded corners */
   display: flex;
   align-items: center;
   justify-content: center;
   color: #6c757d;
-  overflow: hidden; /* ADDED: Ensures image doesn't overflow rounded corners */
+  overflow: hidden;
 }
 
-/* UPDATED: Professional headshot styling with size constraints */
 .header_pic img {
   width: 100%;
   height: 100%;
-  max-width: 400px; /* ADDED: Prevents image from exceeding reasonable size */
-  max-height: 400px; /* ADDED: Maintains square-ish proportions */
-  object-fit: cover; /* Maintains aspect ratio while filling container */
-  border-radius: 8px; /* Matches container border radius */
+  max-width: 400px;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 /* ========================================================= */
 /* ========== ABOUT SECTION ========== */
 /* ========================================================= */
-
-/* ===== LAB07: ABOUT SECTION GRID LAYOUT ===== */
-/* ADDITION for LAB07 */
-
 .about-section {
   display: grid;
   grid-template-columns: 1fr;
@@ -284,19 +205,15 @@ header {
   padding: 3rem 0;
   align-items: center;
 }
-
-/* On larger screens, create a 2-column layout */
 @media (min-width: 768px) {
   .about-section {
     grid-template-columns: 250px 1fr;
     gap: 3rem;
   }
 }
-
 .about-image {
   justify-self: center;
 }
-
 .about-image img {
   width: 100%;
   max-width: 250px;
@@ -307,8 +224,6 @@ header {
 /* ========================================================= */
 /* ========== SKILLS SECTION ========== */
 /* ========================================================= */
-
-/* ADDITION as part of LAB08 - Basic skill card styling from labs */
 .skill-card {
   padding: 1.5rem;
   background: #f8f9fa;
@@ -317,17 +232,14 @@ header {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
 }
-
 .skill-card:hover {
   transform: translateY(-2px);
 }
-
 .skill-card h3 {
   color: #2c3e50;
   margin-bottom: 0.5rem;
   font-size: 1.2rem;
 }
-
 .skill-card p {
   color: #555;
   font-size: 0.9rem;
@@ -336,38 +248,29 @@ header {
 /* ========================================================= */
 /* ========== PROJECTS SECTION ========== */
 /* ========================================================= */
-
-/* ADDITION for LAB08: Projects Grid Layout */
-  .projects-container {
+.projects-container {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
   margin-top: 2rem;
 }
-
-/* Tablet: 768px and up */
 @media (min-width: 768px) {
   .projects-container {
     grid-template-columns: 1fr 1fr;
   }
-  
   .project-card.featured {
     grid-column: span 2;
   }
 }
-
-/* Desktop: 1024px and up */
 @media (min-width: 1024px) {
   .projects-container {
     grid-template-columns: repeat(3, 1fr);
   }
-  
   .project-card.featured {
     grid-column: span 2;
     grid-row: span 2;
   }
 }
-
 .project-card {
   padding: 2rem;
   background: white;
@@ -376,17 +279,14 @@ header {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
 }
-
 .project-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
-
 .project-card h3 {
   color: #2c3e50;
   margin-bottom: 1rem;
 }
- 
 .project-card p {
   margin-bottom: 0.5rem;
 }
@@ -394,8 +294,6 @@ header {
 /* ========================================================= */
 /* ========== COMPONENTS ========== */
 /* ========================================================= */
-
-/* Consistent spacing between paragraphs */
 p + p {
   margin-top: 1rem;
 }
@@ -403,9 +301,6 @@ p + p {
 /* ========================================================= */
 /* ========== RESPONSIVE DESIGN ========== */
 /* ========================================================= */
-
-/* ===== MOBILE NAVIGATION: COLUMN LAYOUT ===== */
-/* On mobile screens (below 768px), stack navigation vertically */
 @media (max-width: 767px) {
   .nav-container {
     flex-direction: column;
@@ -413,48 +308,65 @@ p + p {
     gap: 1rem;
     padding: 1rem;
   }
-  
   .nav-links {
     flex-direction: column;
     gap: 1rem;
     width: 100%;
   }
-  
   .nav-links a {
     display: block;
     padding: 0.5rem 0;
     border-bottom: 1px solid #e9ecef;
   }
-  
   .nav-links a:last-child {
     border-bottom: none;
   }
 }
-
-/* Tablet: 768px and up */
 @media (min-width: 768px) {
   .projects-container {
     grid-template-columns: 1fr 1fr;
   }
-  
   .project-card.featured {
     grid-column: span 2;
   }
 }
-
-/* Desktop: 1024px and up */
 @media (min-width: 1024px) {
   .projects-container {
     grid-template-columns: repeat(3, 1fr);
   }
-  
   .project-card.featured {
     grid-column: span 2;
     grid-row: span 2;
   }
 }
 
+/* ========================================================= */
+/* ========== ARCHIVED ORIGINAL FILE COMMENTS ========== */
+/* ========================================================= */
 
+/* ===== PORTFOLIO CSS DEVELOPMENT PROGRESSION =====
+ * LAB01: Basic HTML structure foundation
+ * LAB04: Links, images, and semantic elements
+ * LAB05: CSS foundation with reset and typography
+ * LAB06: Header design and professional styling
+ * LAB07: Flexbox layouts for navigation and content sections
+ * LAB08: CSS Grid for advanced portfolio layouts
+ ================================================= */
 
+/* ===== LAB05: CSS RESET FOUNDATION ===== */
 
+/* ===== LAB05-LAB06: TYPOGRAPHY FOUNDATION ===== */
 
+/* ===== LAB07: MAIN CONTAINER & SECTION SPACING ===== */
+
+/* ===== LAB06: BASIC NAVIGATION STYLING ===== */
+
+/* ===== LAB07: FLEXBOX NAVIGATION ENHANCEMENT ===== */
+
+/* ===== MOBILE NAVIGATION: COLUMN LAYOUT ===== */
+
+/* ===== LAB07: ABOUT SECTION GRID LAYOUT ===== */
+
+/* ADDITION as part of LAB08 - Basic skill card styling from labs */
+
+/* ADDITION for LAB08: Projects Grid Layout */
