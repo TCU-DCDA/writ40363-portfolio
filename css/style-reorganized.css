@@ -1,401 +1,481 @@
 /* =========================
    IMPORTS
    ========================= */
+/* External font imports from Google Fonts
+   - Tinos: Serif font used for body text (regular and bold, normal and italic)
+   - Zalando Sans Expanded: Sans-serif font used for headings with variable weight */
 @import url('https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Zalando+Sans+Expanded:ital,wght@0,200..900;1,200..900&display=swap');
 
 /* =========================
    CSS VARIABLES
    ========================= */
+/* CSS Custom Properties (variables) defined at the root level
+   These create a centralized color palette and design system that can be reused throughout the stylesheet
+   Using variables makes it easy to maintain consistency and quickly change themes
+   Variables are accessed using var(--variable-name) syntax */
 :root {
-  --primary-color: #1e40af;
-  --heading-color: #4d1979;
-  --text-color: #1f2937;
-  --light-text: #6b7280;
-  --background: #833b3b;
-  --light-background: #f9fafb;
-  --card-background: #f8f9fa;
-  --card-border: #e9ecef;
-  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --card-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
-  --accent-color: #833b3b;
-  --link-hover: #007bff;
+  --primary-color: #1e40af;        /* Main brand blue used for links and primary elements */
+  --heading-color: #4d1979;        /* Deep purple for all headings (h1, h2, h3) */
+  --text-color: #1f2937;           /* Dark gray for main body text content */
+  --light-text: #6b7280;           /* Lighter gray for secondary/supporting text */
+  --background: #833b3b;           /* Main page background color (brownish-red) */
+  --light-background: #f9fafb;     /* Very light gray for section backgrounds */
+  --card-background: #f8f9fa;      /* Off-white background for skill and project cards */
+  --card-border: #e9ecef;          /* Light gray border color for card outlines */
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);        /* Subtle shadow for cards (normal state) */
+  --card-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow for cards on hover */
+  --accent-color: #833b3b;         /* Accent color for decorative elements (matches background) */
+  --link-hover: #007bff;           /* Bright blue for link hover states and focus outlines */
 }
 
 /* =========================
    RESET
    ========================= */
+/* CSS Reset - removes default browser styling to create a consistent starting point
+   Different browsers apply different default margins, padding, and box models
+   This reset ensures our design looks the same across all browsers */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  box-sizing: border-box;    /* Makes width/height include padding and border (easier sizing) */
+  margin: 0;                 /* Removes default margins from all elements */
+  padding: 0;                /* Removes default padding from all elements */
 }
 
 /* =========================
    BASE TYPOGRAPHY
    ========================= */
+/* Typography foundation - establishes font families, sizes, and text hierarchy
+   Good typography improves readability and creates visual hierarchy
+   Uses a combination of serif (readable) and sans-serif (modern) fonts */
+
+/* Body text styling - applies to all text unless overridden */
 body {
-  font-family: 'Tinos' , serif;
-  line-height: 1.6;
-
-  color: var(--text-color);
-  background: var(--background);
+  font-family: 'Tinos' , serif;    /* Serif font for body text (easier to read in long form) */
+  line-height: 1.6;                /* Increases space between lines for better readability */
+  color: var(--text-color);        /* Uses our defined text color variable */
+  background: var(--background);   /* Sets the overall page background */
 }
 
+/* Heading styles - creates visual hierarchy with different sizes and weights */
 h1,h2,h3 {
-  font-family: 'Zalando', sans-serif;
-  line-height: 1.2;
+  font-family: 'Zalando', sans-serif;  /* Sans-serif font for headings (clean, modern look) */
+  line-height: 1.2;                    /* Tighter line height for headings (less space needed) */
 }
 
+/* Main heading (h1) - largest, most prominent text on the page */
 h1 {
-  color: var(--heading-color);
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700;
-  margin-bottom: 1rem;
-  line-height: 1.2;
+  color: var(--heading-color);              /* Purple color for visual distinction */
+  font-size: clamp(2rem, 5vw, 3rem);       /* Responsive sizing: min 2rem, scales with viewport, max 3rem */
+  font-weight: 700;                         /* Bold weight for maximum impact */
+  margin-bottom: 1rem;                      /* Space below heading */
+  line-height: 1.2;                         /* Tight line spacing for large text */
 }
 
+/* Section heading (h2) - second level in the hierarchy */
 h2 {
-  color: var(--heading-color);
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: 600;
-  margin-bottom: 0.8rem;
-  line-height: 1.3;
+  color: var(--heading-color);              /* Same purple as h1 for consistency */
+  font-size: clamp(1.5rem, 4vw, 2.5rem);   /* Smaller than h1, still responsive */
+  font-weight: 600;                         /* Semi-bold (lighter than h1) */
+  margin-bottom: 0.8rem;                    /* Less space than h1 */
+  line-height: 1.3;                         /* Slightly more line height than h1 */
 }
 
+/* Sub-heading (h3) - third level in the hierarchy */
 h3 {
-  color: var(--heading-color);
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
-  font-weight: 600;
-  margin-bottom: 0.6rem;
-  line-height: 1.4;
+  color: var(--heading-color);              /* Consistent color with other headings */
+  font-size: clamp(1.2rem, 3vw, 1.8rem);   /* Smallest heading size, still responsive */
+  font-weight: 600;                         /* Same weight as h2 */
+  margin-bottom: 0.6rem;                    /* Least space of all headings */
+  line-height: 1.4;                         /* Most line height for smaller text */
 }
 
+/* Body text elements - paragraphs and list items */
 p,
  li {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1rem;          /* Standard 16px size for optimal readability */
+  line-height: 1.6;         /* Generous line spacing for easy reading */
 }
 
+/* Paragraph spacing and color */
 p {
-  margin-bottom: 1rem;
-  color: #555;
+  margin-bottom: 1rem;      /* Space between paragraphs */
+  color: #555;              /* Medium gray for softer appearance than pure black */
 }
 
+/* Adjacent paragraph spacing - adds extra space between consecutive paragraphs */
 p + p {
-  margin-top: 1rem;
+  margin-top: 1rem;         /* Additional space when one paragraph follows another */
 }
 
+/* Link styling */
 a {
-  color: var(--primary-color);
+  color: var(--primary-color);  /* Blue color for links (standard web convention) */
 }
 
 /* =========================
    BASE LAYOUT
    ========================= */
+/* Layout foundation - controls the overall structure and spacing of page content
+   Establishes readable line lengths, centering, and consistent spacing patterns */
+
+/* Main content container - wraps all page content */
 main {
-  max-width: 65ch;
-  margin: 0 auto;
-  padding: 5%;
+  max-width: 65ch;           /* Limits line length to ~65 characters for optimal readability */
+  margin: 0 auto;            /* Centers the container horizontally on the page */
+  padding: 5%;               /* Adds breathing room around content (responsive to screen size) */
 }
 
+/* Section styling - creates distinct content areas */
 section {
-  margin-bottom: 2rem;
-  padding: 3rem;
-  background: var(--light-background);
+  margin-bottom: 2rem;                /* Space between sections for visual separation */
+  padding: 3rem;                      /* Internal spacing within each section */
+  background: var(--light-background); /* Light background to distinguish from main background */
 }
 
+/* Section heading layout - centers headings within sections */
 section h2 {
-  text-align: center;
-  margin-bottom: 2rem;
+  text-align: center;        /* Centers the heading text horizontally */
+  margin-bottom: 2rem;       /* Extra space below section headings */
 }
 
+/* Decorative underline for section headings - creates visual polish */
 section h2::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 3px;
-  background: var(--accent-color);
-  margin: 1rem auto 0;
-  border-radius: 2px;
+  content: '';                        /* Creates empty pseudo-element for styling */
+  display: block;                     /* Makes it a block element to sit below text */
+  width: 60px;                        /* Fixed width for consistent appearance */
+  height: 3px;                        /* Thickness of the decorative line */
+  background: var(--accent-color);    /* Uses accent color for brand consistency */
+  margin: 1rem auto 0;                /* Centers horizontally with top margin */
+  border-radius: 2px;                 /* Slightly rounds the corners */
 }
 
 /* =========================
    UTILITIES
    ========================= */
+/* Utility classes - reusable styles that can be applied to any element
+   These classes follow a single-purpose pattern for consistent styling */
 .secondary-text {
-  color: var(--light-text);
+  color: var(--light-text);  /* Applies lighter text color for less prominent content */
 }
 
 /* =========================
    COMPONENTS
    ========================= */
+/* Component styles - self-contained UI elements with specific functionality
+   Each component is designed to be modular and reusable across the site */
 
-/* Navigation */
+/* ========== NAVIGATION ========== */
+/* Basic navigation wrapper - provides structure for the navigation bar */
 nav {
-
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #e9ecef;
+  padding: 1rem 2rem;               /* Internal spacing around navigation content */
+  border-bottom: 1px solid #e9ecef; /* Subtle border to separate nav from main content */
 }
 
+/* Navigation layout container - uses flexbox for responsive navigation layout */
 .nav-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  padding: 1rem 2rem;
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;                     /* Flexbox layout for horizontal arrangement */
+  justify-content: space-between;    /* Pushes logo left, nav links right */
+  gap: 2rem;                         /* Space between flex items */
+  padding: 1rem 2rem;                /* Internal padding for breathing room */
+  background: #fff;                  /* White background for contrast */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth and separation */
 }
 
+/* Logo/brand styling - prominent and clickable site identifier */
 .logo {
-  font-size: 1.25rem;
-  font-weight: 700;
-  text-decoration: none;
-  color: #2c3e50;
+  font-size: 1.25rem;        /* Larger than normal text for prominence */
+  font-weight: 700;          /* Bold weight for brand emphasis */
+  text-decoration: none;     /* Removes underline from link */
+  color: #2c3e50;            /* Dark color for strong contrast */
 }
 
+/* Navigation links container - horizontal list of navigation options */
 .nav-links {
-  display: flex;
-  gap: 2rem;
+  display: flex;             /* Horizontal layout for navigation items */
+  gap: 2rem;                 /* Consistent spacing between navigation links */
 }
 
+/* Individual navigation link styling */
 .nav-links a {
-  text-decoration: none;
-  color: #2c3e50;
-  font-weight: 500;
+  text-decoration: none;     /* Removes default link underline */
+  color: #2c3e50;            /* Dark text color for readability */
+  font-weight: 500;          /* Medium weight for subtle emphasis */
 }
 
+/* Navigation link hover state - provides visual feedback */
 .nav-links a:hover {
-  color: var(--accent-color);
+  color: var(--accent-color); /* Changes to accent color on mouse hover */
 }
 
+/* Navigation accessibility - focus states for keyboard users */
 nav a:focus {
-  outline: 2px solid var(--link-hover);
-  outline-offset: 2px;
+  outline: 2px solid var(--link-hover); /* Blue outline for keyboard focus */
+  outline-offset: 2px;                  /* Space between element and outline */
 }
 
-/* Header */
+/* ========== HEADER ========== */
+/* Main header section - hero area with introduction and profile image */
 header {
-  display: flex;
-  align-items: center;
-  padding: 2rem;
-  gap: 2rem;
-  height: 60vh;
-  background-color: #f8f9fa;
+  display: flex;              /* Flexbox for side-by-side layout */
+  align-items: center;        /* Centers content vertically */
+  padding: 2rem;              /* Internal spacing around header content */
+  gap: 2rem;                  /* Space between text and image */
+  height: 60vh;               /* Takes up 60% of viewport height for impact */
+  background-color: #f8f9fa;  /* Light background to distinguish from other sections */
 }
 
+/* Header text section - introduction and main content */
 .header_text {
-  flex: 1;
-  padding: 2rem;
+  flex: 1;                    /* Takes up equal space in flex container */
+  padding: 2rem;              /* Internal spacing around text content */
 }
 
+/* Header image container - profile photo display area */
 .header_pic {
-  flex: 1;
-  background-color: #e9ecef;
-  min-height: 300px;
-  max-width: 400px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #6c757d;
-  overflow: hidden;
+  flex: 1;                           /* Takes up equal space with text section */
+  background-color: #e9ecef;         /* Placeholder background color */
+  min-height: 300px;                 /* Ensures minimum height for visual balance */
+  max-width: 400px;                  /* Limits image width for proportion */
+  border-radius: 10px;               /* Rounded corners for modern appearance */
+  display: flex;                     /* Centers placeholder content */
+  align-items: center;               /* Vertically centers placeholder */
+  justify-content: center;           /* Horizontally centers placeholder */
+  color: #6c757d;                    /* Gray color for placeholder text */
+  overflow: hidden;                  /* Clips image to container bounds */
 }
 
+/* Header image styling - actual profile photo */
 .header_pic img {
-  width: 100%;
-  height: 100%;
-  max-width: 400px;
-  max-height: 400px;
-  object-fit: cover;
-  border-radius: 10px;
+  width: 100%;                /* Fills container width */
+  height: 100%;               /* Fills container height */
+  max-width: 400px;           /* Prevents oversized images */
+  max-height: 400px;          /* Prevents oversized images */
+  object-fit: cover;          /* Crops image to fit while maintaining aspect ratio */
+  border-radius: 10px;        /* Matches container border radius */
 }
 
-/* About Section */
+/* ========== ABOUT SECTION ========== */
+/* About section layout - uses CSS Grid for flexible image/text arrangement */
 .about-section {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  padding: 3rem 0;
-  align-items: center;
+  display: grid;                    /* CSS Grid for 2D layout control */
+  grid-template-columns: 1fr;       /* Single column on mobile (responsive) */
+  gap: 2rem;                        /* Space between grid items */
+  padding: 3rem 0;                  /* Vertical padding for section spacing */
+  align-items: center;              /* Centers items vertically within grid areas */
 }
 
+/* About image container - centers the profile image */
 .about-image {
-  justify-self: center;
-  text-align: center;
+  justify-self: center;      /* Centers the image horizontally in grid cell */
+  text-align: center;        /* Centers any text content within */
 }
 
+/* About section image styling */
 .about-image img {
-  width: 100%;
-  max-width: 250px;
-  height: auto;
-  border-radius: 8px;
+  width: 100%;               /* Responsive width within container */
+  max-width: 250px;          /* Limits maximum size for proportion */
+  height: auto;              /* Maintains aspect ratio */
+  border-radius: 8px;        /* Rounded corners for modern look */
 }
 
+/* About text content area */
 .about-text {
-  min-width: 250px;
-  padding: 2rem;
+  min-width: 250px;          /* Ensures minimum width for readability */
+  padding: 2rem;             /* Internal spacing around text content */
 }
 
-/* Skills Section */
+/* ========== SKILLS SECTION ========== */
+/* Skills grid container - responsive card layout for skill showcases */
 .skills-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  display: grid;                                      /* CSS Grid for card layout */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive columns: min 200px, auto-fitting */
+  gap: 2rem;                                          /* Consistent spacing between skill cards */
+  margin-top: 2rem;                                   /* Space above skills container */
 }
 
+/* Individual skill card styling - contains each skill's information */
 .skill-card {
-  padding: 1.5rem;
-  background: var(--card-background);
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: var(--card-shadow);
-  transition: transform 0.3s ease;
+  padding: 1.5rem;                    /* Internal spacing within each card */
+  background: var(--card-background); /* Light background for card distinction */
+  border-radius: 8px;                 /* Rounded corners for modern appearance */
+  text-align: center;                 /* Centers all text content */
+  box-shadow: var(--card-shadow);     /* Subtle shadow for depth */
+  transition: transform 0.3s ease;    /* Smooth animation for hover effects */
 }
 
+/* Skill card hover effect - provides interactive feedback */
 .skill-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);         /* Lifts card slightly on hover */
+  box-shadow: var(--card-shadow-hover); /* Enhanced shadow for hover state */
 }
 
+/* Skill card heading styling */
 .skill-card h3 {
-  color: #2c3e50;
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
+  color: #2c3e50;            /* Dark color for strong contrast and readability */
+  margin-bottom: 0.5rem;     /* Space between skill title and description */
+  font-size: 1.2rem;         /* Slightly larger than body text for hierarchy */
 }
 
+/* Skill card description text */
 .skill-card p {
-  color: #555;
-  font-size: 0.9rem;
+  color: #555;               /* Medium gray for secondary information */
+  font-size: 0.9rem;         /* Slightly smaller than standard text */
 }
 
-/* Projects Section */
+/* ========== PROJECTS SECTION ========== */
+/* Projects grid container - similar to skills container but single column default */
 .projects-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-  margin-top: 2rem;
+  display: grid;             /* CSS Grid layout (same pattern as skills-container) */
+  grid-template-columns: 1fr; /* Single column on mobile, expands via media queries */
+  gap: 2rem;                 /* Consistent card spacing (matches skills section) */
+  margin-top: 2rem;          /* Standard section spacing */
 }
 
+/* Project card styling - follows same card pattern as skill-card but with white background */
 .project-card {
-  padding: 2rem;
-  background: #fff;
-  border: 1px solid var(--card-border);
-  border-radius: 8px;
-  box-shadow: var(--card-shadow);
-  transition: transform 0.3s ease;
+  padding: 2rem;                      /* More padding than skill cards for larger content */
+  background: #fff;                   /* White background (vs. skill card's light gray) */
+  border: 1px solid var(--card-border); /* Adds border for definition (skill cards use shadow only) */
+  border-radius: 8px;                 /* Rounded corners (consistent with skill cards) */
+  box-shadow: var(--card-shadow);     /* Same shadow system as skill cards */
+  transition: transform 0.3s ease;    /* Same hover animation as skill cards */
 }
 
+/* Project card hover effect - identical to skill card hover */
 .project-card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);         /* Same lift effect as skill cards */
+  box-shadow: var(--card-shadow-hover); /* Same shadow enhancement as skill cards */
 }
 
+/* Project card typography - follows same hierarchy pattern */
 .project-card h3 {
-  color: #2c3e50;
-  margin-bottom: 1rem;
+  color: #2c3e50;            /* Same dark color as skill card headings */
+  margin-bottom: 1rem;       /* More space than skill cards for project descriptions */
 }
 
 .project-card p {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;     /* Tight spacing for multiple paragraphs */
 }
 
-/* Footer */
+/* ========== FOOTER ========== */
+/* Site footer - contact information and closing content */
 footer {
-  background-color: #2c3e50;
-  color: #fff;
-  padding: 2rem;
-  text-align: center;
-  margin-top: 3rem;
+  background-color: #2c3e50; /* Dark background for contrast with main content */
+  color: #fff;                /* White text for contrast on dark background */
+  padding: 2rem;              /* Standard section padding (matches header) */
+  text-align: center;         /* Centers all footer content (like section h2 styling) */
+  margin-top: 3rem;           /* Extra separation from main content */
 }
 
+/* Footer typography - light colors on dark background for readability */
 footer h4 {
-  color: #ecf0f1;
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-  font-weight: 600;
+  color: #ecf0f1;             /* Light gray-white for heading contrast */
+  font-size: 1.3rem;          /* Slightly larger than body text (similar to h3 pattern) */
+  margin-bottom: 1rem;        /* Standard heading spacing */
+  font-weight: 600;           /* Semi-bold weight (consistent with h2/h3) */
 }
 
 footer p {
-  color: #bdc3c7;
-  margin-bottom: 0.5rem;
-  line-height: 1.6;
+  color: #bdc3c7;             /* Medium light gray for body text hierarchy */
+  margin-bottom: 0.5rem;      /* Tight spacing for contact info */
+  line-height: 1.6;           /* Same line height as body text */
 }
 
+/* Footer links - follows same pattern as navigation links but adapted for dark background */
 footer a {
-  color: #3498db;
-  text-decoration: none;
-  font-weight: 500;
+  color: #3498db;             /* Light blue for link visibility on dark background */
+  text-decoration: none;      /* No underline (consistent with nav links) */
+  font-weight: 500;           /* Medium weight (matches nav link pattern) */
 }
 
 footer a:hover {
-  color: #2980b9;
+  color: #2980b9;             /* Darker blue on hover (same pattern as nav hover) */
 }
 
 /* =========================
    MEDIA QUERIES
    ========================= */
+/* Responsive design breakpoints - adapts layout for different screen sizes
+   Mobile-first approach: styles above apply to all sizes, these override for larger screens
+   Breakpoints chosen based on common device sizes and content needs */
+
+/* ========== MOBILE STYLES (up to 767px) ========== */
+/* Small screens: phones in portrait and landscape modes */
 @media (max-width: 767px) {
+  /* Navigation: transforms horizontal nav to vertical stack */
   .nav-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 1rem;
+    flex-direction: column;    /* Stacks logo above nav links vertically */
+    align-items: flex-start;   /* Aligns items to left instead of space-between */
+    gap: 1rem;                 /* Reduces gap for tighter mobile layout */
+    padding: 1rem;             /* Reduces padding for mobile space constraints */
   }
 
+  /* Navigation links: converts horizontal list to vertical menu */
   .nav-links {
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
+    flex-direction: column;    /* Stacks nav links vertically for mobile */
+    gap: 1rem;                 /* Maintains consistent spacing between links */
+    width: 100%;               /* Takes full width of container */
   }
 
+  /* Individual nav links: adds mobile-friendly touch targets */
   .nav-links a {
-    display: block;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #e9ecef;
+    display: block;            /* Makes entire line clickable (better for touch) */
+    padding: 0.5rem 0;         /* Adds vertical padding for larger touch targets */
+    border-bottom: 1px solid #e9ecef; /* Separates each link with subtle line */
   }
 
   .nav-links a:last-child {
-    border-bottom: none;
+    border-bottom: none;       /* Removes border from last link for clean appearance */
   }
 
+  /* Header: transforms side-by-side layout to stacked layout */
   header {
-    flex-direction: column;
-    height: auto;
+    flex-direction: column;    /* Stacks text above image for mobile readability */
+    height: auto;              /* Removes fixed viewport height, allows natural sizing */
   }
 
+  /* Header sections: removes desktop width constraints */
   .header_text,
   .header_pic {
-    max-width: none;
+    max-width: none;           /* Allows full width usage on mobile screens */
   }
 }
 
+/* ========== TABLET STYLES (768px and up) ========== */
+/* Medium screens: tablets, small laptops, large phones in landscape */
 @media (min-width: 768px) {
+  /* Main content: adjusts padding for medium screens */
   main {
-    padding: 1.5rem;
+    padding: 1.5rem;          /* Less padding than mobile's 5%, more controlled spacing */
   }
 
+  /* About section: creates two-column layout with fixed image width */
   .about-section {
-    grid-template-columns: 250px 1fr;
-    gap: 3rem;
+    grid-template-columns: 250px 1fr; /* Fixed 250px for image, remaining space for text */
+    gap: 3rem;                 /* Larger gap between image and text for better proportion */
   }
 
+  /* Projects: begins multi-column layout */
   .projects-container {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr; /* Two equal columns for project cards */
   }
 
+  /* Featured project cards: spans full width for emphasis */
   .project-card.featured {
-    grid-column: span 2;
+    grid-column: span 2;       /* Makes featured projects take up both columns */
   }
 }
 
+/* ========== DESKTOP STYLES (1024px and up) ========== */
+/* Large screens: desktop computers, large tablets in landscape */
 @media (min-width: 1024px) {
+  /* Projects: expands to three-column layout for better space utilization */
   .projects-container {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns for optimal desktop viewing */
   }
 
+  /* Featured projects: creates prominent showcase layout */
   .project-card.featured {
-    grid-column: span 2;
-    grid-row: span 2;
+    grid-column: span 2;       /* Takes up 2 of 3 columns horizontally */
+    grid-row: span 2;          /* Takes up 2 rows vertically for prominent display */
   }
 }
