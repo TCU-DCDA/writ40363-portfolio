@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!-- 
+===== PORTFOLIO HTML DEVELOPMENT PROGRESSION =====
+LAB01: Basic HTML5 structure, semantic elements
+LAB04: Links, images, lists, and navigation
+LAB06: Header content and professional structure  
+LAB07: Content sections with semantic organization
+LAB08: Featured project markup for advanced grid layouts
+================================================= 
+-->
+<html lang="en">
+
+<!-- ===== LAB01-LAB05: HEAD FOUNDATION ===== -->
+<head>
+    <meta charset="UTF-8">
+    <!-- FIXED: Corrected viewport meta tag syntax -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curt Rode's Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+    <!-- ===== LAB07: FLEXBOX NAVIGATION IMPLEMENTATION ===== -->
+    <!-- UPDATED: Added portfolio-appropriate navigation links -->
+    <nav>
+        <div class="nav-container">  
+            <a href="#" class="logo">Curt Rode</a>
+            <div class="nav-links">     
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+        </div>
+
+    </nav>
+
+    <!-- ===== LAB06: HEADER FLEXBOX LAYOUT ===== -->
+    <header>
+
+        <!-- UPDATED: Added portfolio-ready personal content -->
+        <div class="header_text">
+            <h1>Curt Rode</h1>
+            <p>Professor, Digital Media Artist & Creative Technologist</p>
+            <p>Exploring the intersections of literature, technology, and education through innovative digital experiences and creative practice.</p>
+        </div>
+
+        <!-- UPDATED: Added professional headshot image -->
+        <div class="header_pic">
+            <img src="images/40363_rode_headshot_F25.jpeg" alt="Curt Rode professional headshot" />
+        </div>
+
+    </header>
+
+    <main>
+
+    <!-- ===== LAB07: ABOUT SECTION GRID LAYOUT ===== -->
+    <!-- UPDATED: Changed to meaningful portfolio section heading -->
+<section class="about-section" id="about">
+    <div class="about-image">
+        <img src="images/AI-intern.png" alt="A silly picture of AI">
+    </div>
+    <div class="about-text">
+        <h2>About Me</h2>
+        <p>I am a professor in the English department at Texas Christian University and a creative practitioner with over 30 years of experience exploring the intersections between traditional literary forms and emerging digital media.</p>
+        <p>My work spans three art forms: poetry published in prestigious journals like The Sun Magazine and Florida Review, experimental digital literature projects, and musical collaborations including current work with The Deep Sleepers. I create interactive digital poetry projects that combine Python, JavaScript, and multimedia elements to explore new forms of literary expression.</p>
+        <p>As an educator, I focus on helping students develop both technical skills and creative thinking through courses like HTML & CSS coding, digital storytelling, and multimedia poetry creation. Students consistently praise my supportive teaching approach, clear grading criteria, and ability to make technical subjects accessible and engaging.</p>
+        <p>Currently, I'm teaching WRIT40363 while learning how to teach web application development to my students, building accessible, semantic web pages using professional development practices. I'm particularly interested in how AI tools can enhance rather than replace human creativity and critical thinking in the digital humanities classroom.</p>
+    </div>
+</section>
+
+    <!-- ===== LAB08: SKILLS AUTO-FIT GRID LAYOUT ===== -->
+    <!-- UPDATED for LAB07: Changed to meaningful portfolio section heading -->
+   <section class="skills-section" id="skills">
+    <h2>My Skills</h2>
+    <div class="skills-container">
+        <div class="skill-card">
+            <!-- Animated p5.js illustration: Digital Media & Web Development -->
+            <div id="skill1-p5-canvas" style="margin: 0 auto; max-width: 210px;"></div>
+            <h3>Digital Media & Web Development</h3>
+            <p>HTML, CSS, JavaScript, Python, interactive digital projects</p>
+        </div>
+        <div class="skill-card">
+            <h3>Creative Practice</h3>
+            <p>Poetry, digital literature, multimedia storytelling, experimental art forms</p>
+        </div>
+        <div class="skill-card">
+            <h3>Education & Teaching</h3>
+            <p>Curriculum design, accessible instruction, creative pedagogy, 30+ years experience</p>
+        </div>
+        <div class="skill-card">
+            <h3>Technical Tools</h3>
+            <p>VS Code, Git, GitHub, multimedia production, AI-enhanced workflows</p>
+        </div>
+        <div class="skill-card">
+            <h3>Communication & Collaboration</h3>
+            <p>Academic writing, public speaking, musical collaboration, cross-disciplinary work</p>
+        </div>
+        <div class="skill-card">
+            <h3>Research & Innovation</h3>
+            <p>Digital humanities, emerging technologies, creative-technical integration</p>
+        </div>
+    </div>
+</section>
+
+    <!-- ===== LAB08: PROJECTS FEATURED GRID WITH SPANNING ===== -->
+    <!-- ADDED for LAB07: New portfolio section with meaningful heading -->
+  <section class="projects-section" id="projects">
+    <h2>My Projects</h2>
+    <div class="projects-container">
+        <!-- LAB08: Featured project with grid spanning -->
+        <article class="project-card featured">
+            <div class="project-content">
+                <h3>Interactive Digital Poetry Collection</h3>
+                <p>A multimedia poetry project combining traditional verse with JavaScript interactions and Python-generated elements. Features responsive design and accessibility features for diverse audiences.</p>
+                <p><strong>Skills used:</strong> Python, JavaScript, HTML, CSS, multimedia integration</p>
+            </div>
+        </article>
+        
+        <article class="project-card">
+            <div class="project-content">
+                <h3>WRIT40363 Course Website</h3>
+                <p>Designed and developed a comprehensive course website for teaching web application development, featuring accessible navigation, clear content organization, and student resource integration.</p>
+                <p><strong>Skills used:</strong> HTML, CSS, responsive design, accessibility, pedagogical design</p>
+            </div>
+        </article>
+        
+        <article class="project-card">
+            <div class="project-content">
+                <h3>Digital Humanities Research Platform</h3>
+                <p>Collaborative platform for exploring intersections between literature and technology, featuring searchable archives and interactive text analysis tools for students and researchers.</p>
+                <p><strong>Skills used:</strong> Database design, content management, research methodology, academic web standards</p>
+            </div>
+        </article>
+        
+        <article class="project-card">
+            <div class="project-content">
+                <h3>The Deep Sleepers Music Collaboration</h3>
+                <p>Ongoing musical project exploring experimental soundscapes and lyrical composition, with plans for digital album release and interactive web presence.</p>
+                <p><strong>Skills used:</strong> Creative collaboration, multimedia production, project coordination</p>
+            </div>
+        </article>
+    </div>
+</section>
+
+
+</main>
+
+    <!-- ===== LAB-ALIGNED: SIMPLE FOOTER IMPLEMENTATION ===== -->
+    <!-- Simple footer section for contact information (Lab-aligned) -->
+    <footer id="contact">
+        <h4>Contact</h4>
+        <p>Email: <a href="mailto:c.rode@tcu.edu">c.rode@tcu.edu</a></p>
+        <p>Office: Texas Christian University</p>
+        <p>Department: English</p>
+        <p>&copy; 2025 Curt Rode. All rights reserved.</p>
+    </footer>
+
+</body>
+
+    <!-- Place p5.js and the illustration script at the end of the body for proper loading -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+    <script src="css/skill1-illustration.js"></script>
+</html>
