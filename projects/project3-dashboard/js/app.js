@@ -77,7 +77,7 @@ let currentQuoteIndex = -1; // Track current quote to avoid repeats
 function loadQuotes() {
   console.log('Loading quotes...');
 
-  fetch('./data/quotes.json')
+  fetch('data/quotes.json')
     .then(response => {
       console.log('Got quotes response:', response);
       return response.json();
@@ -132,9 +132,6 @@ function displayQuotesError() {
   `;
 }
 
-// Call loadQuotes when page loads
-loadQuotes();
-
 // Set up "New Quote" button
 function setupQuotesButton() {
   const newQuoteBtn = document.getElementById('new-quote-btn');
@@ -145,5 +142,6 @@ function setupQuotesButton() {
   });
 }
 
-// Call setupQuotesButton after DOM is loaded
+// Call loadQuotes and setupQuotesButton when page loads
+loadQuotes();
 setupQuotesButton();
