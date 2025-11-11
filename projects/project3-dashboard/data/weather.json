@@ -4,6 +4,7 @@
   "condition": "Partly Cloudy",
   "icon": "⛅",
   "humidity": 65,
-  "windSpeed": 8
+  "windSpeed": 8,
+  "cityImage": "https://images.unsplash.com/photo-1583425423320-2386622cd2e4?w=400&h=250&fit=crop"
 }
 

@@ -1,42 +1,52 @@
 [
   {
     "text": "The only way to do great work is to love what you do.",
-    "author": "Steve Jobs"
+    "author": "Steve Jobs",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg/220px-Steve_Jobs_Headshot_2010-CROP_%28cropped_2%29.jpg"
   },
   {
     "text": "What falls away is always and near.",
-    "author": "Theordore Roethke"
+    "author": "Theodore Roethke",
+    "image": "https://ui-avatars.com/api/?name=Theodore+Roethke&size=220&background=8b5cf6&color=fff&bold=true"
   },
   {
     "text": "Death is the mother of beauty.",
-    "author": "Wallace Stevens"
+    "author": "Wallace Stevens",
+    "image": "https://ui-avatars.com/api/?name=Wallace+Stevens&size=220&background=ec4899&color=fff&bold=true"
   },
   {
     "text": "For once, then, something.",
-    "author": "Robert Frost"
+    "author": "Robert Frost",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Robert_Frost_NYWTS.jpg/220px-Robert_Frost_NYWTS.jpg"
   },
   {
     "text": "Make it work, make it right, make it fast.",
-    "author": "Kent Beck"
+    "author": "Kent Beck",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Kent_Beck_no_Workshop_Mapping_XP.jpg/220px-Kent_Beck_no_Workshop_Mapping_XP.jpg"
   },
   {
     "text": "The best error message is the one that never shows up.",
-    "author": "Thomas Fuchs"
+    "author": "Thomas Fuchs",
+    "image": "https://ui-avatars.com/api/?name=Thomas+Fuchs&size=220&background=667eea&color=fff&bold=true"
   },
   {
     "text": "Simplicity is the soul of efficiency.",
-    "author": "Austin Freeman"
+    "author": "Austin Freeman",
+    "image": "https://ui-avatars.com/api/?name=Austin+Freeman&size=220&background=764ba2&color=fff&bold=true"
   },
   {
     "text": "Before software can be reusable it first has to be usable.",
-    "author": "Ralph Johnson"
+    "author": "Ralph Johnson",
+    "image": "https://ui-avatars.com/api/?name=Ralph+Johnson&size=220&background=4299e1&color=fff&bold=true"
   },
   {
     "text": "Programs must be written for people to read, and only incidentally for machines to execute.",
-    "author": "Harold Abelson"
+    "author": "Harold Abelson",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Harold_Abelson_at_LibrePlanet_2019.jpg/220px-Harold_Abelson_at_LibrePlanet_2019.jpg"
   },
   {
     "text": "The most damaging phrase in the language is: 'We've always done it this way.'",
-    "author": "Grace Hopper"
+    "author": "Grace Hopper",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Commodore_Grace_M._Hopper%2C_USN_%28covered%29.jpg/220px-Commodore_Grace_M._Hopper%2C_USN_%28covered%29.jpg"
   }
 ]
